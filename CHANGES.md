@@ -1,1 +1,2 @@
 - 2020-05-02 v0.0.0 refactor(all): eternal-hjson-js is forked from hjson-js@v3.2.1.
+- 2020-05-02 v0.0.1 refactor(package.json and .travis.yml): Removing odd properties.

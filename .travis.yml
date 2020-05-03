@@ -11,5 +11,5 @@ node_js:
   - "0.10"
 script:
   - npm install
-  - if [[ $TRAVIS_NODE_VERSION == 0* ]]; then npm test; else npm run build; fi
+    #  - if [[ $TRAVIS_NODE_VERSION == 0* ]]; then npm test; else npm run build; fi
 
