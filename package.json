@@ -1,9 +1,10 @@
 {
-  "name": "hjson",
-  "description": "A user interface for JSON.",
+  "name": "eternal-hjson",
+  "description": "A fork of [hjson-js](https://github.com/hjson/hjson-js) with the goal of making hjson immortal!!",
   "main": "./lib/hjson.js",
-  "author": "Christian Zangl",
-  "version": "3.2.1",
+  "author": "Anadian",
+  "contributers": "Christian Zangl (creator of the original hjson-js package)",
+  "version": "0.0.0",
   "keywords": [
     "json",
     "comments",
@@ -28,10 +29,10 @@
   "homepage": "http://hjson.org",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hjson/hjson-js.git"
+    "url": "https://github.com/Anadian/eternal-hjson-js.git"
   },
   "bugs": {
-    "url": "https://github.com/hjson/hjson-js/issues"
+    "url": "https://github.com/Anadian/eternal-hjson-js/issues"
   },
   "license": "MIT",
   "devDependencies": {
