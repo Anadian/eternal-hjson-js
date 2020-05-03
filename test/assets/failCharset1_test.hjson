@@ -1,4 +1,4 @@
 {
-  # invalid \u char
-  char: "\uxxxx"
+	# invalid \u char
+	char: "\uxxxx"
 }

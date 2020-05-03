@@ -1,5 +1,5 @@
 {
-  # invalid string containing a newline
-  foo : "
-  "
+	# invalid string containing a newline
+	foo : "
+	"
 }

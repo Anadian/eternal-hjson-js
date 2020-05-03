@@ -1,4 +1,4 @@
 {
-  # invalid quoteless string
-  ql: ,
+	# invalid quoteless string
+	ql: ,
 }

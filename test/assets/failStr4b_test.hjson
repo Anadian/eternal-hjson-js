@@ -1,4 +1,4 @@
 {
-  # invalid quoteless string
-  ql: [x
+	# invalid quoteless string
+	ql: [x
 }

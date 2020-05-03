@@ -1,8 +1,8 @@
 {
-  foo:
-    '''
-    bar	joe
-    oki	doki
-    		two tabs
-    '''
+	foo:
+		'''
+		bar	joe
+		oki	doki
+				two tabs
+		'''
 }

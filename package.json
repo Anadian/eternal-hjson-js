@@ -1,38 +1,39 @@
 {
-  "name": "eternal-hjson",
-  "description": "A fork of [hjson-js](https://github.com/hjson/hjson-js) with the goal of making hjson immortal!!",
-  "main": "./lib/hjson.js",
-  "author": "Anadian",
-  "contributors": "Christian Zangl (creator of the original hjson-js package)",
-  "version": "0.0.0",
-  "keywords": [
-    "json",
-    "comments",
-    "config",
-    "hjson",
-    "parser",
-    "serializer",
-    "human"
-  ],
-  "bin": {
-    "hjson": "./bin/hjson"
-  },
-  "scripts": {
-    "test": "node ./test/test.js"
-  },
-  "homepage": "http://hjson.org",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Anadian/eternal-hjson-js.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Anadian/eternal-hjson-js/issues"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "browserify": "^13.3.0",
-    "browserify-header": "0.9.2",
-    "eslint": "^3.13.1",
-    "uglify-js": "^2.7.5"
-  }
+	"name": "eternal-hjson",
+	"description": "A fork of [hjson-js](https://github.com/hjson/hjson-js) with the goal of making hjson immortal!!",
+	"main": "./lib/hjson.js",
+	"author": "Anadian",
+	"contributors": "Christian Zangl (creator of the original hjson-js package)",
+	"version": "0.0.1",
+	"keywords": [
+		"json",
+		"comments",
+		"config",
+		"hjson",
+		"parser",
+		"serializer",
+		"human"
+	],
+	"bin": {
+		"hjson": "./bin/hjson"
+	},
+	"scripts": {
+		"test": "node ./test/test.js",
+	"lint": "npx eslint ./lib"
+	},
+	"homepage": "http://hjson.org",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Anadian/eternal-hjson-js.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Anadian/eternal-hjson-js/issues"
+	},
+	"license": "MIT",
+	"devDependencies": {
+		"browserify": "^13.3.0",
+		"browserify-header": "0.9.2",
+		"eslint": "^3.13.1",
+		"uglify-js": "^2.7.5"
+	}
 }

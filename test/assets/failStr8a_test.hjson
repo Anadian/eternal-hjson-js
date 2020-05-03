@@ -1,4 +1,4 @@
 {
-  # invalid ml-string
-  foo : ""'text'''
+	# invalid ml-string
+	foo : ""'text'''
 }

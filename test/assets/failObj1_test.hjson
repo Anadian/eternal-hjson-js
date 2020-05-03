@@ -1,6 +1,6 @@
 {
-  # invalid obj
-  noDelimiter
-  {
-  }
+	# invalid obj
+	noDelimiter
+	{
+	}
 }
