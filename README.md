@@ -6,6 +6,15 @@
 > A fork of [hjson-js](https://github.com/hjson/hjson-js) with the goal of making hjson immortal!!
 
 ## Original README
+
+[![Build Status](https://img.shields.io/travis/hjson/hjson-js.svg?style=flat-square)](http://travis-ci.org/hjson/hjson-js)
+[![NPM version](https://img.shields.io/npm/v/hjson.svg?style=flat-square)](http://www.npmjs.com/package/hjson)
+[![License](https://img.shields.io/github/license/hjson/hjson-js.svg?style=flat-square)](https://github.com/hjson/hjson-js/blob/master/LICENSE)
+
+[Hjson](https://hjson.github.io), a user interface for JSON
+
+![Hjson Intro](https://hjson.github.io/hjson1.gif)
+
 JSON is easy for humans to read and write... in theory. In practice JSON gives us plenty of opportunities to make mistakes without even realizing it.
 
 Hjson is a syntax extension to JSON. It's NOT a proposal to replace JSON or to incorporate it into the JSON spec itself. It's intended to be used like a user interface for humans, to read and edit before passing the JSON data to the machine.
