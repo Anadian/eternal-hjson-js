@@ -4,6 +4,11 @@
 [![License](https://img.shields.io/github/license/Anadian/eternal-hjson-js)](https://github.com/Anadian/eternal-hjson-js/blob/master/LICENSE)
 > A fork of [hjson-js](https://github.com/hjson/hjson-js) with the goal of making hjson immortal!!
 
+![Hjson Intro](https://hjson.github.io/hjson1.gif)
+
+JSON is easy for humans to read and write ... in theory. In practice, JSON gives us plenty of opportunities to make mistakes without even realizing it.
+
+Hjson is a syntax extension to JSON. It's NOT a proposal to replace JSON or to incorporate it into the JSON spec itself. It's intended to be used like a user interface for humans, to read and edit before passing the JSON data to the machine.
 # Table of Contents
 - [Background](#Background)
 - [Install](#Install)
@@ -19,10 +24,10 @@ I created this fork as the [original HJSON package](https://github.com/hjson/hjs
 Enter, [HJSON](https://hjson.github.io): the human interface for JSON! Its got comments, no trailing-comma errors, doesn't require double-quotes around key names, and much, much more. The best part is HJSON is designed to sit on top of existing JSON infrastructure, not replace JSON itself, so you can present friendly HJSON to your end users and easily to convert it to regular JSON when you need to do some machine-to-machine communication. HJSON's syntax is a superset of usability concepts to standard JSON's data-exchange-oriented syntax so all existing JSON is also valid HJSON.
 
 So now that you know what HJSON is and, hopefully, why I like it so much, it might be helpful to explain why I feel none of other serilisation/config formats fit the bill:
-- [XML]() is extremely complex and requires a massive codebase to implement the whole standard; its syntax is verbose, declarative, and very unpleasant to write directly. There's a reason JSON overtook it as the de facto data serialisation format.
-- [YAML]() is one of the first major attempts to design a data serilisation standard specifically for user configuration files but, I feel, it falls short in many areas: its standard has been ammended several times and virtually none of the existing YAML engine compliantly implement a signal version of the standard, let alone keep pace with latest standard and its syntax is littered with nasty, undocumented gotchas, like its whitespacing rules, which are only intuitive to Python programmers.
-- [TOML]() is an attempt to standardise the ol'INI-style config files: unfortunately, it inherits the main weakness of INI files witch is their lack of an easy and succinct way to represent structured data.
-- [JSON5]() is deliberately confusingly named to make it sound more important than it is: it is not a revision of JSON, let alone the fifth version. It is its own JSON-like format that is fundamentally incompatible with existing JSON engines and aims to **replace** JSON as its own format. It extends the JSON standard with useless features that serve no purpose in the context of data exchange (what's the point of adding `undefined` as a keyword when `null` already has that covered?) and lack any semantic meaning outside of ECMAscript. It does add some nice usability features, nowhere near as many as HJSON, but these feature have no purpose in a data exchange language and JSON5 aims to replace JSON as a data-exchange format, not work on top of JSON like HJSON does.
+- [XML](https://en.wikipedia.org/wiki/XML) is extremely complex and requires a massive codebase to implement the whole standard; its syntax is verbose, declarative, and very unpleasant to write directly. There's a reason JSON overtook it as the de facto data serialisation format.
+- [YAML](https://yaml.org/) is one of the first major attempts to design a data serilisation standard specifically for user configuration files but, I feel, it falls short in many areas: its standard has been amended several times and virtually none of the existing YAML engine compliantly implement a single version of the standard, let alone keep pace with latest standard and its syntax is littered with nasty, undocumented gotchas, like its whitespacing rules, which are only intuitive to Python programmers.
+- [TOML](https://toml.io/en/) is an attempt to standardise the ol'INI-style config files: unfortunately, it inherits the main weakness of INI files witch is their lack of an easy and succinct way to represent structured data.
+- [JSON5](https://json5.org/) is deliberately confusingly named to make it sound more important than it is: it is not a revision of JSON, let alone the fifth version. It is its own JSON-like format that is incompatible with existing JSON engines and aims to **replace** JSON as its own format. It extends the JSON standard with features that serve no purpose in the context of data exchange and lack any agreed-upon semantic meaning outside of ECMAscript.
 # Install
 # Usage
 # API

@@ -1,20 +1,15 @@
 # eternal-hjson
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 [![Semantic Versioning 2.0.0](https://img.shields.io/badge/semver-2.0.0-brightgreen?style=flat-square)](https://semver.org/spec/v2.0.0.html)
-[![License](https://img.shields.io/github/license/Anadian/eternal-hjson-js?style=plastic)](https://github.com/Anadian/eternal-hjson-js/LICENSE)
+[![License](https://img.shields.io/github/license/Anadian/eternal-hjson-js)](https://github.com/Anadian/eternal-hjson-js/blob/master/LICENSE)
 > A fork of [hjson-js](https://github.com/hjson/hjson-js) with the goal of making hjson immortal!!
-
-## Original README
-
-[Hjson](https://hjson.github.io), a user interface for JSON
 
 ![Hjson Intro](https://hjson.github.io/hjson1.gif)
 
-JSON is easy for humans to read and write... in theory. In practice JSON gives us plenty of opportunities to make mistakes without even realizing it.
+JSON is easy for humans to read and write ... in theory. In practice, JSON gives us plenty of opportunities to make mistakes without even realizing it.
 
 Hjson is a syntax extension to JSON. It's NOT a proposal to replace JSON or to incorporate it into the JSON spec itself. It's intended to be used like a user interface for humans, to read and edit before passing the JSON data to the machine.
-
-```Hjson
+```hjson
 {
   # specify rate in requests/second (because comments are helpful!)
   rate: 1000
@@ -33,144 +28,51 @@ Hjson is a syntax extension to JSON. It's NOT a proposal to replace JSON or to i
 }
 ```
 
-The JavaScript implementation of Hjson is based on [JSON-js](https://github.com/douglascrockford/JSON-js). For other platforms see [hjson.org](http://hjson.org).
+The JavaScript implementation of HJSON is based on [JSON-js](https://github.com/douglascrockford/JSON-js). For other platforms see [hjson.github.io](http://hjson.github.io).
+# Table of Contents
+- [Background](#Background)
+- [Install](#Install)
+- [Usage](#Usage)
+- [CLI](#CLI)
+- [API](#API)
+- [Contributing](#Contributing)
+- [License](#License)
+# Background
+I created this fork as the [original HJSON package](https://github.com/hjson/hjson-js) has been largely unmaintained and is in need of a significant refactoring. I believe the [HJSON format](https://hjson.github.io) is still as necessary as ever as there still isn't a good standard for user-facing config without it. HJSON works as a light layer that sits on top of existing JSON implementations and supersedes the standard to be more user friendly and produce less syntax errors; HJSON is **not** designed to replace or extend the [JSON standard](https://www.json.org/json-en.html), rather HJSON is designed to be seamlessly and consistently converted to proper JSON for data exchange (machine-to-machine) purposes. 
 
-# Install from npm
+[JSON](https://en.wikipedia.org/wiki/JSON) remains the king of data serialisation formats and for good reason: its syntax is **very simple and consistent**, it can handle structured data beautifully, it's fairly intuitive and human readable, and most importantly it is universally recognised and has robust parsers and formatters in just about every single language/environment imaginable. JSON isn't particularly pleasant to edit/write by hand as that's irrelevant to its actual goal of being a perfect data-exchange format: JSON doesn't have comments for a [good (data-exchange) reason](https://archive.vn/20150704102718/https://plus.google.com/+DouglasCrockfordEsq/posts/RK8qyGVaGSr) and the simplicity and consistency required by its syntax can be frustrating when edited directly by an end user which make it less than ideal as a format for user-facing config files. Now, what if we could leverage the universality of JSON for config files without having to require our users to worry about trailing commas or missing braces?
 
+Enter, [HJSON](https://hjson.github.io): the human interface for JSON! Its got comments, no trailing-comma errors, doesn't require double-quotes around key names, and much, much more. The best part is HJSON is designed to sit on top of existing JSON infrastructure, not replace JSON itself, so you can present friendly HJSON to your end users and easily to convert it to regular JSON when you need to do some machine-to-machine communication. HJSON's syntax is a superset of usability concepts to standard JSON's data-exchange-oriented syntax so all existing JSON is also valid HJSON.
+
+So now that you know what HJSON is and, hopefully, why I like it so much, it might be helpful to explain why I feel none of other serilisation/config formats fit the bill:
+- [XML](https://en.wikipedia.org/wiki/XML) is extremely complex and requires a massive codebase to implement the whole standard; its syntax is verbose, declarative, and very unpleasant to write directly. There's a reason JSON overtook it as the de facto data serialisation format.
+- [YAML](https://yaml.org/) is one of the first major attempts to design a data serilisation standard specifically for user configuration files but, I feel, it falls short in many areas: its standard has been amended several times and virtually none of the existing YAML engine compliantly implement a single version of the standard, let alone keep pace with latest standard and its syntax is littered with nasty, undocumented gotchas, like its whitespacing rules, which are only intuitive to Python programmers.
+- [TOML](https://toml.io/en/) is an attempt to standardise the ol'INI-style config files: unfortunately, it inherits the main weakness of INI files witch is their lack of an easy and succinct way to represent structured data.
+- [JSON5](https://json5.org/) is deliberately confusingly named to make it sound more important than it is: it is not a revision of JSON, let alone the fifth version. It is its own JSON-like format that is incompatible with existing JSON engines and aims to **replace** JSON as its own format. It extends the JSON standard with features that serve no purpose in the context of data exchange and lack any agreed-upon semantic meaning outside of ECMAscript.
+# Install
+To use `eternal-hjson` as a dependency in your project, run:
+```sh
+npm install --save eternal-hjson
 ```
-npm install eternal-hjson
+To use `eternal-hjson`'s built-in CLI globally, run:
+```sh
+npm install --global eternal-hjson
 ```
-
 # Usage
+```js
+const HJSON = require('eternal-hjson');
 
+var obj = HJSON.parse(hjsonText);
+var text2 = HJSON.stringify(obj);
 ```
-var Hjson = require('eternal-hjson');
-
-var obj = Hjson.parse(hjsonText);
-var text2 = Hjson.stringify(obj);
-```
-
-To keep comments intact see [API](#modify--keep-comments).
-
-## From the Commandline
-
-Install with `npm install hjson -g`.
-
-```
-Usage:
-  hjson [OPTIONS]
-  hjson [OPTIONS] INPUT
-  hjson (-h | --help | -?)
-  hjson (-V | --version)
-
-INPUT can be in JSON or Hjson format. If no file is given it will read from stdin.
-The default is to output as Hjson.
-
-Options:
-  (-j | -json)  output as formatted JSON.
-  (-c | -json=compact)  output as JSON.
-Options for Hjson output:
-  -sl         output the opening brace on the same line
-  -quote      quote all strings
-  -quote=all  quote keys as well
-  -js         output in JavaScript/JSON compatible format
-              can be used with -rt and // comments
-  -rt         round trip comments
-  -nocol      disable colors
-  -cond=n     set condense option (default 60, 0 to disable)
-
-Domain specific formats are optional extensions to Hjson and can be enabled with the following options:
-  +math: support for Inf/inf, -Inf/-inf, Nan/naN and -0
-  +hex: parse hexadecimal numbers prefixed with 0x
-  +date: support ISO dates
-```
-
-Sample:
-- run `hjson -j test.hjson > test.json` to convert to JSON
-- run `hjson test.json > test.hjson` to convert to Hjson
-- run `hjson test.json` to view colorized output
-
-
+## CLI
 # API
+# Contributing
+Changes are tracked in [CHANGELOG.md](CHANGELOG.md).
+# License
+MIT ©2021 Anadian
 
-The API is the same for the browser and node.js version.
+SEE LICENSE IN [LICENSE](LICENSE)
 
-**NOTE that the DSF api is considered experimental**
-
-### Hjson.parse(text, options)
-
-This method parses *JSON* or *Hjson* text to produce an object or array.
-
-- *text*: the string to parse as JSON or Hjson
-- *options*: object
-  - *keepWsc*: boolean, keep white space and comments. This is useful if you want to edit an hjson file and save it while preserving comments (default false)
-
-### Hjson.stringify(value, options)
-
-This method produces Hjson text from a JavaScript value.
-
-- *value*: any JavaScript value, usually an object or array.
-- *options*: object
-  - *keepWsc*: boolean, keep white space. See parse.
-  - *condense*: integer, will try to fit objects/arrays onto one line. Default 0 (off).
-  - *bracesSameLine*: boolean, makes braces appear on the same line as the key name. Default false.
-  - *emitRootBraces*: boolean, show braces for the root object. Default true.
-  - *quotes*: string, controls how strings are displayed. (setting separator implies "strings")
-    - "min": no quotes whenever possible (default)
-    - "keys": use quotes around keys
-    - "strings": use quotes around string values
-    - "all": use quotes around keys and string values
-  - *multiline*: string, controls how multiline strings are displayed. (setting quotes implies "off")
-    - "std": strings containing \n are shown in multiline format (default)
-    - "no-tabs": like std but disallow tabs
-    - "off": show in JSON format
-  - *separator*: boolean, output a comma separator between elements. Default false
-  - *space*: specifies the indentation of nested structures. If it is a number, it will specify the number of spaces to indent at each level. If it is a string (such as '\t' or '&nbsp;'), it contains the characters used to indent at each level.
-  - *eol*: specifies the EOL sequence (default is set by Hjson.setEndOfLine())
-  - *colors*: boolean, output ascii color codes
-  - *serializeDeterministically*: boolean, when serializing objects into hjson, order the keys based on their UTF-16 code units order. Default false.
-
-### Hjson.endOfLine(), .setEndOfLine(eol)
-
-Gets or sets the stringify EOL sequence ('\n' or '\r\n'). When running with node.js this defaults to os.EOL.
-
-### Hjson.rt { parse, stringify }
-
-This is a shortcut to roundtrip your comments when reading and updating a config file. It is the same as specifying the keepWsc option for the parse and stringify functions.
-
-### Hjson.version
-
-The version number.
-
-### require-hook
-
-Require a config file directly.
-
-```
-require("hjson/lib/require-config");
-var cfg=require("./config.hjson");
-```
-
-## modify & keep comments
-
-You can modify a Hjson file and keep the whitespace & comments intact (round trip). This is useful if an app updates its config file.
-
-```
-// parse, keep whitespace and comments
-// (they are stored in a non enumerable __COMMENTS__ member)
-var data = Hjson.rt.parse(text);
-
-// modify like you normally would
-data.foo = "text";
-
-// convert back to Hjson
-console.log(Hjson.rt.stringify(data));
-```
-# Build
-
-To run all tests and create the bundle output, first install the dev dependencies with `npm i` and then run `npm run build`.
-
-# History
-
-[see history.md](history.md)
-
+[![Creative Commons License](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)\
+This project's documentation is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
