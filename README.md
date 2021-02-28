@@ -2,14 +2,9 @@
 [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 [![Semantic Versioning 2.0.0](https://img.shields.io/badge/semver-2.0.0-brightgreen?style=flat-square)](https://semver.org/spec/v2.0.0.html)
 [![License](https://img.shields.io/github/license/Anadian/eternal-hjson-js?style=plastic)](https://github.com/Anadian/eternal-hjson-js/LICENSE)
-[![Build Status](https://travis-ci.org/Anadian/eternal-hjson-js.svg?branch=master)](https://travis-ci.org/Anadian/eternal-hjson-js)
 > A fork of [hjson-js](https://github.com/hjson/hjson-js) with the goal of making hjson immortal!!
 
 ## Original README
-
-[![Build Status](https://img.shields.io/travis/hjson/hjson-js.svg?style=flat-square)](http://travis-ci.org/hjson/hjson-js)
-[![NPM version](https://img.shields.io/npm/v/hjson.svg?style=flat-square)](http://www.npmjs.com/package/hjson)
-[![License](https://img.shields.io/github/license/hjson/hjson-js.svg?style=flat-square)](https://github.com/hjson/hjson-js/blob/master/LICENSE)
 
 [Hjson](https://hjson.github.io), a user interface for JSON
 
