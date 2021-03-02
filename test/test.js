@@ -60,7 +60,7 @@ Parametres:
 function load(file, cr) {
 	var text = fs.readFileSync(path.join(rootDir, file), "utf8");
 	var std = text.replace(/\r/g, ""); // make sure we have unix style text regardless of the input
-	return cr ? std.replace(/\n/g, "\r\n") : std;
+	return cr ? std.replace(/\n/g, "\r\n") : std; //Replaces \n with \r\n if parametre `cr` is `true`.
 }
 
 /**
